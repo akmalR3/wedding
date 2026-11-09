@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undangan Pernikahan | Syifa & Akmal</title>
+<style>
+:root {
+  --cream: #f8f4eb;
+  --green: #596b55;
+  --gold: #b69a62;
+  --ink: #34392f;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; cursor: pointer; }
+.cover {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 28px 20px;
+  color: white;
+  background:
+    linear-gradient(#26372b99, #26372bcc),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85")
+    center/cover;
+}
+.cover-inner {
+  max-width: 440px;
+  width: 100%;
+  padding: 40px 20px;
+  border: 1px solid #e0c994;
+  animation: rise 1.2s ease both;
+}
+.eyebrow {
+  letter-spacing: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+h1, h2, h3 { font-weight: normal; }
+.cover h1 {
+  font-size: clamp(35px, 8vw, 60px);
+  margin: 22px 0 10px;
+}
+.cover p { line-height: 1.8; }
+.btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  background: var(--green);
+  color: white;
+  padding: 13px 24px;
+  text-decoration: none;
+  margin-top: 12px;
+}
+.btn:hover { filter: brightness(1.12); }
+main { display: none; }
+main.open { display: block; }
+section { padding: 70px 22px; }
+section:nth-child(even) { background: #bac4c2; }
+h2 { font-size: clamp(30px, 7vw, 44px); }
+.names { color: var(--green); font-size: 46px; }
+.gold { color: #9b7c43; }
+.intro { max-width: 560px; margin: auto; line-height: 1.9; }
+.photo {
+  width: min(100%, 440px);
+  height: 400px;
+  object-fit: cover;
+  border-radius: 180px 180px 12px 12px;
+  margin: 20px auto;
+}
+.details {
+  max-width: 430px;
+  margin: 24px auto;
+  padding: 28px 20px;
+  border: 1px solid #c9b88f;
+  line-height: 1.9;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.time {
+  min-width: 68px;
+  padding: 15px 8px;
+  background: white;
+  border-radius: 8px;
+}
+.time strong { display: block; font-size: 25px; }
+.time span { font-size: 11px; }
+footer { padding: 36px 20px; line-height: 1.8; }
+#music { position: fixed; right: 15px; bottom: 15px; z-index: 5;
+  border: 0; border-radius: 50%; width: 48px; height: 48px;
+  background: var(--green); color: white; display: none; }
+.reveal { animation: rise .9s ease both; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<audio id="backgroundMusic" loop>
+    <source src="audio/JVKE_-_her_@BaseNaija.mp3" type="audio/mpeg">
+</audio>
+
+<div class="cover" id="cover">
+  <div class="cover-inner">
+    <div class="eyebrow">The Wedding Of</div>
+    <h1>Syifa <span class="gold">&</span> Akmal</h1>
+    <p>Kepada Bapak/Ibu/Saudara/i<br>
+       Kami mengundang Anda untuk berbagi kebahagiaan.</p>
+    <p>20 Juni 2027</p>
+    <button class="btn" id="openBtn">♡ Buka Undangan ♡</button>
+  </div>
+</div>
+
+<main id="invitation">
+  <section>
+    <p class="eyebrow gold">Dengan penuh rasa syukur</p>
+    <h2>Assalamu'alaikum</h2>
+    <p class="intro">
+      Dengan memohon rahmat dan ridha Allah SWT,
+      kami mengundang Anda untuk hadir dan memberikan
+      doa restu pada pernikahan kami.
+    </p>
+    <h2 class="names">Syifa & Akmal</h2>
+    <p>Putri & putra dari keluarga tercinta</p>
+    <img class="photo"
+      src="photobooth.jpeg"
+      alt="Foto Pengantin">
+  </section>
+
+  <section>
+    <p class="eyebrow gold">Save the date</p>
+    <h2>Hari Bahagia Kami</h2>
+    <p>Minggu, 20 Juni 2027</p>
+    <div class="countdown" id="countdown">
+      Menghitung waktu...
+    </div>
+    <div class="details">
+      <h3>Akad Nikah</h3>
+      <p>09.00 WIB – selesai</p>
+      <hr>
+      <h3>Resepsi</h3>
+      <p>11.00–14.00 WIB</p>
+      <p>Kota Tua<br>Jakarta, Indonesia</p>
+      <a class="btn"
+         href="https://maps.google.com/?q=Kotatua"
+         target="_blank" rel="noopener">
+         Buka Google Maps
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow gold">Doa dan restu Anda</p>
+    <h2>Merupakan Kebahagiaan Kami</h2>
+    <p class="intro">
+      Merupakan suatu kehormatan bagi kami apabila
+      Anda berkenan hadir dan memberikan doa restu.
+      Terima kasih atas perhatian dan kasih sayangnya.
+    </p>
+    <a class="btn" id="rsvp" href="#">Konfirmasi via WhatsApp</a>
+  </section>
+
+  <footer>
+    <p>Terima kasih atas doa dan restu Anda.</p>
+    <h2 class="names">Syifa & Akmal</h2>
+    <p>Made with love ♡</p>
+  </footer>
+</main>
+
+<button id="music" aria-label="Musik demo">♫</button>
+
+<script>
+// GANTI TANGGAL INI sesuai hari acara.
+const weddingDate = new Date("2027-06-20T09:00:00+07:00");
+
+const openBtn = document.getElementById("openBtn");
+const cover = document.getElementById("cover");
+const invitation = document.getElementById("invitation");
+const musicButton = document.getElementById("music");
+
+openBtn.addEventListener("click", () => {
+
+  // Musik otomatis menyala saat undangan dibuka
+  backgroundMusic.volume = 0.5;
+  backgroundMusic.play()
+    .then(() => {
+      musicButton.textContent = "⏸";
+    })
+    .catch((error) => {
+      console.log("Musik belum bisa diputar:", error);
+    });
+
+  cover.style.transition = "opacity .8s ease, transform .8s ease";
+  cover.style.opacity = "0";
+  cover.style.transform = "scale(1.04)";
+  setTimeout(() => {
+    cover.style.display = "none";
+    invitation.style.display = "block";
+    invitation.classList.add("open");
+    invitation.querySelectorAll("section").forEach((el, i) => {
+      el.style.animationDelay = (i * 0.15) + "s";
+      el.classList.add("reveal");
+    });
+    musicButton.style.display = "block";
+    invitation.scrollIntoView();
+  }, 800);
+});
+
+function updateCountdown() {
+  const diff = weddingDate.getTime() - Date.now();
+  const el = document.getElementById("countdown");
+
+  if (diff <= 0) {
+    el.textContent = "Hari bahagia telah tiba!";
+    return;
+  }
+
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor(diff / 3600000) % 24;
+  const mins = Math.floor(diff / 60000) % 60;
+  const secs = Math.floor(diff / 1000) % 60;
+
+  el.innerHTML = `
+    <div class="time"><strong>${days}</strong><span>HARI</span></div>
+    <div class="time"><strong>${hours}</strong><span>JAM</span></div>
+    <div class="time"><strong>${mins}</strong><span>MENIT</span></div>
+    <div class="time"><strong>${secs}</strong><span>DETIK</span></div>`;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// GANTI dengan nomor WhatsApp pemilik undangan.
+// Format internasional tanpa tanda + atau spasi.
+const whatsappNumber = "6282292418484";
+const message = encodeURIComponent(
+  "Halo, saya ingin mengonfirmasi kehadiran di pernikahan Syifa & Akmal."
+);
+document.getElementById("rsvp").href =
+  `https://wa.me/${whatsappNumber}?text=${message}`;
+
+const backgroundMusic = document.getElementById("backgroundMusic");
+
+musicButton.addEventListener("click", async () => {
+  try {
+    if (backgroundMusic.paused) {
+      await backgroundMusic.play();
+      musicButton.textContent = "⏸️";
+    } else {
+      backgroundMusic.pause();
+      musicButton.textContent = "♫";
+    }
+  } catch (error) {
+    alert("Musik belum bisa diputar. Cek file lagu.mp3 kamu.");
+  }
+});
+</script>
+</body>
+</html>
